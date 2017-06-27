@@ -1,0 +1,4 @@
+F:\testXiangmu\WebApplication3\DAL\bin\Debug\DAL.dll
+F:\testXiangmu\WebApplication3\DAL\bin\Debug\DAL.pdb
+F:\testXiangmu\WebApplication3\DAL\obj\Debug\DAL.dll
+F:\testXiangmu\WebApplication3\DAL\obj\Debug\DAL.pdb

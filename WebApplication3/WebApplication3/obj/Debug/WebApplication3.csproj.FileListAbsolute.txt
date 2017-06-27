@@ -1,0 +1,9 @@
+F:\testXiangmu\WebApplication3\WebApplication3\bin\WebApplication3.dll
+F:\testXiangmu\WebApplication3\WebApplication3\bin\WebApplication3.pdb
+F:\testXiangmu\WebApplication3\WebApplication3\bin\BLL.dll
+F:\testXiangmu\WebApplication3\WebApplication3\bin\DAL.dll
+F:\testXiangmu\WebApplication3\WebApplication3\bin\BLL.pdb
+F:\testXiangmu\WebApplication3\WebApplication3\bin\DAL.pdb
+F:\testXiangmu\WebApplication3\WebApplication3\obj\Debug\WebApplication3.csprojResolveAssemblyReference.cache
+F:\testXiangmu\WebApplication3\WebApplication3\obj\Debug\WebApplication3.dll
+F:\testXiangmu\WebApplication3\WebApplication3\obj\Debug\WebApplication3.pdb

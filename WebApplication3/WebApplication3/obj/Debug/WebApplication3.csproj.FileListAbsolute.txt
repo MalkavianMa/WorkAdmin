@@ -7,3 +7,12 @@ F:\testXiangmu\WebApplication3\WebApplication3\bin\DAL.pdb
 F:\testXiangmu\WebApplication3\WebApplication3\obj\Debug\WebApplication3.csprojResolveAssemblyReference.cache
 F:\testXiangmu\WebApplication3\WebApplication3\obj\Debug\WebApplication3.dll
 F:\testXiangmu\WebApplication3\WebApplication3\obj\Debug\WebApplication3.pdb
+C:\Users\dell\Documents\GitHub\WorkAdmin\WebApplication3\WebApplication3\bin\WebApplication3.dll
+C:\Users\dell\Documents\GitHub\WorkAdmin\WebApplication3\WebApplication3\bin\WebApplication3.pdb
+C:\Users\dell\Documents\GitHub\WorkAdmin\WebApplication3\WebApplication3\bin\BLL.dll
+C:\Users\dell\Documents\GitHub\WorkAdmin\WebApplication3\WebApplication3\bin\DAL.dll
+C:\Users\dell\Documents\GitHub\WorkAdmin\WebApplication3\WebApplication3\bin\BLL.pdb
+C:\Users\dell\Documents\GitHub\WorkAdmin\WebApplication3\WebApplication3\bin\DAL.pdb
+C:\Users\dell\Documents\GitHub\WorkAdmin\WebApplication3\WebApplication3\obj\Debug\WebApplication3.csprojResolveAssemblyReference.cache
+C:\Users\dell\Documents\GitHub\WorkAdmin\WebApplication3\WebApplication3\obj\Debug\WebApplication3.dll
+C:\Users\dell\Documents\GitHub\WorkAdmin\WebApplication3\WebApplication3\obj\Debug\WebApplication3.pdb

@@ -5,3 +5,10 @@ F:\testXiangmu\WebApplication3\BLL\bin\Debug\DAL.pdb
 F:\testXiangmu\WebApplication3\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 F:\testXiangmu\WebApplication3\BLL\obj\Debug\BLL.dll
 F:\testXiangmu\WebApplication3\BLL\obj\Debug\BLL.pdb
+C:\Users\dell\Documents\GitHub\WorkAdmin\WebApplication3\BLL\bin\Debug\BLL.dll
+C:\Users\dell\Documents\GitHub\WorkAdmin\WebApplication3\BLL\bin\Debug\BLL.pdb
+C:\Users\dell\Documents\GitHub\WorkAdmin\WebApplication3\BLL\bin\Debug\DAL.dll
+C:\Users\dell\Documents\GitHub\WorkAdmin\WebApplication3\BLL\bin\Debug\DAL.pdb
+C:\Users\dell\Documents\GitHub\WorkAdmin\WebApplication3\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\dell\Documents\GitHub\WorkAdmin\WebApplication3\BLL\obj\Debug\BLL.dll
+C:\Users\dell\Documents\GitHub\WorkAdmin\WebApplication3\BLL\obj\Debug\BLL.pdb

@@ -17,9 +17,84 @@ namespace WebApplication3
         {
 
             context.Response.ContentType = "text/plain";
-            Query(context);
+            string operation, firstname, password, workerID, adminRightID, adminID;
+            operation = firstname = password = workerID = adminRightID = adminID = "";
+            if (null != context.Request.QueryString["adminID"])
+            {
+                adminID = context.Request.QueryString["adminID"].ToString();
+            }
+            if (null != context.Request.QueryString["firstname"])
+            {
+                firstname = context.Request.QueryString["firstname"].ToString();
+            }
+            if (null != context.Request.QueryString["password"])
+            {
+                password = context.Request.QueryString["password"].ToString();
 
-           // context.Response.Write("Hello World");
+            }
+            if (null != context.Request.QueryString["workerID"])
+            {
+                workerID = context.Request.QueryString["workerID"].ToString();
+
+            }
+            if (null != context.Request.QueryString["adminRightID"])
+            {
+                adminRightID = context.Request.QueryString["adminRightID"].ToString();
+
+            }
+            if (!string.IsNullOrEmpty(context.Request.QueryString["test"]))
+            {
+                operation = context.Request.QueryString["test"].ToString();
+
+                switch (operation)
+                {
+
+                    case "add":
+                        if (!string.IsNullOrEmpty(firstname) && !string.IsNullOrEmpty(password) && !string.IsNullOrEmpty(workerID) && !string.IsNullOrEmpty(adminRightID))//AdminName
+                        {
+                            int Count = BLL.BLLManager.AddCount(adminID, firstname, password, workerID, adminRightID);//静态字段访问
+                            if (Count > 0)
+                            {
+                                context.Response.Write("T");//返回给前台页面,提示成功
+                            }
+                        }
+                        break;
+                    case "modify":
+                        if (!string.IsNullOrEmpty(firstname) && !string.IsNullOrEmpty(password) && !string.IsNullOrEmpty(workerID) && !string.IsNullOrEmpty(adminRightID))//AdminName
+                        {
+                            int Count = BLL.BLLManager.UpdateCount(adminID, firstname, password, workerID, adminRightID);//静态字段访问
+                            if (Count > 0)
+                            {
+                                context.Response.Write("T");//返回给前台页面,提示成功
+                            }
+                        }
+                        break;
+                    case "edit":
+                        break;
+                    case "delete":
+                        if (!string.IsNullOrEmpty(adminID))//AdminName
+                        {
+
+                            int count = BLL.BLLManager.DeleteCount(adminID);
+
+                            if (count > 0)
+                            {
+                                context.Response.Write("T");//返回给前台页面  
+
+                            }
+
+                        }
+                        break;
+                    default:
+                        Query(context);
+                        break;
+                }
+            }
+            else
+            {
+                Query(context);
+            }
+            // context.Response.Write("Hello World");
         }
 
         #region 查询方法
@@ -123,14 +198,17 @@ namespace WebApplication3
                 oderby = order + " " + sort;
             }
             string strJson = BLL.BLLManager.GetStrJson(strWhere.ToString(), oderby, (page - 1) * pageRows + 1, page * pageRows);
-           // string strJson = bll.GetStrJson(strWhere.ToString(), oderby, (page - 1) * pageRows + 1, page * pageRows);//无法使用实例引用来访问成员请改用类型名来限定它
+            // string strJson = bll.GetStrJson(strWhere.ToString(), oderby, (page - 1) * pageRows + 1, page * pageRows);//无法使用实例引用来访问成员请改用类型名来限定它
             // SqlHelper.ExecuteDataSet(sql, strWhere, parms);
             //DataSet ds = Bnotice.GetList(strWhere.ToString());  //调用不分页的getlist   
             //DataSet ds = GetListByPage(strWhere.ToString(), oderby, (page - 1) * pageRows + 1, page * pageRows);
             //int count = GetRecordCount(strWhere.ToString());//获取条数  
             //string strJson = ToJson.Dataset2Json(ds, count);//DataSet数据转化为Json数据  
             context.Response.Write(strJson);//返回给前台页面  
+            //context.Request.QueryString["UserName"] = "";//集合是只读的
             context.Response.End();
+            //   context.Request.QueryString.Clear();//集合是只读的
+
             //
         }
         #endregion

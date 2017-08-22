@@ -46,6 +46,9 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.state = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tbxRange = new System.Windows.Forms.TextBox();
+            this.btnCalculator = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnWave = new System.Windows.Forms.Button();
             this.btnLineQuery = new System.Windows.Forms.Button();
@@ -59,9 +62,14 @@
             this.tbxWaveEndTime = new System.Windows.Forms.TextBox();
             this.tbxWaveStartTime = new System.Windows.Forms.TextBox();
             this.tbxdeviceOneName = new System.Windows.Forms.TextBox();
-            this.btnCalculator = new System.Windows.Forms.Button();
-            this.tbxRange = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.btnKMcal = new System.Windows.Forms.Button();
+            this.tbxlng = new System.Windows.Forms.TextBox();
+            this.tbxlat = new System.Windows.Forms.TextBox();
+            this.tbxlng2 = new System.Windows.Forms.TextBox();
+            this.tbxlat2 = new System.Windows.Forms.TextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -234,8 +242,42 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "雷电接口";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(450, 67);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(53, 12);
+            this.label12.TabIndex = 14;
+            this.label12.Text = "计算范围";
+            // 
+            // tbxRange
+            // 
+            this.tbxRange.Location = new System.Drawing.Point(503, 64);
+            this.tbxRange.Name = "tbxRange";
+            this.tbxRange.Size = new System.Drawing.Size(42, 21);
+            this.tbxRange.TabIndex = 13;
+            // 
+            // btnCalculator
+            // 
+            this.btnCalculator.Location = new System.Drawing.Point(452, 104);
+            this.btnCalculator.Name = "btnCalculator";
+            this.btnCalculator.Size = new System.Drawing.Size(75, 23);
+            this.btnCalculator.TabIndex = 10;
+            this.btnCalculator.Text = "坐标计算";
+            this.btnCalculator.UseVisualStyleBackColor = true;
+            this.btnCalculator.Click += new System.EventHandler(this.btnCalculator_Click);
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.richTextBox2);
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.richTextBox1);
+            this.groupBox2.Controls.Add(this.tbxlat2);
+            this.groupBox2.Controls.Add(this.tbxlng2);
+            this.groupBox2.Controls.Add(this.tbxlat);
+            this.groupBox2.Controls.Add(this.tbxlng);
+            this.groupBox2.Controls.Add(this.btnKMcal);
             this.groupBox2.Controls.Add(this.btnWave);
             this.groupBox2.Controls.Add(this.btnLineQuery);
             this.groupBox2.Controls.Add(this.label11);
@@ -357,31 +399,69 @@
             this.tbxdeviceOneName.Size = new System.Drawing.Size(100, 21);
             this.tbxdeviceOneName.TabIndex = 0;
             // 
-            // btnCalculator
+            // btnKMcal
             // 
-            this.btnCalculator.Location = new System.Drawing.Point(452, 104);
-            this.btnCalculator.Name = "btnCalculator";
-            this.btnCalculator.Size = new System.Drawing.Size(75, 23);
-            this.btnCalculator.TabIndex = 10;
-            this.btnCalculator.Text = "坐标计算";
-            this.btnCalculator.UseVisualStyleBackColor = true;
-            this.btnCalculator.Click += new System.EventHandler(this.btnCalculator_Click);
+            this.btnKMcal.Location = new System.Drawing.Point(451, 19);
+            this.btnKMcal.Name = "btnKMcal";
+            this.btnKMcal.Size = new System.Drawing.Size(75, 23);
+            this.btnKMcal.TabIndex = 15;
+            this.btnKMcal.Text = "距离计算";
+            this.btnKMcal.UseVisualStyleBackColor = true;
+            this.btnKMcal.Click += new System.EventHandler(this.btnKMcal_Click);
             // 
-            // tbxRange
+            // tbxlng
             // 
-            this.tbxRange.Location = new System.Drawing.Point(503, 64);
-            this.tbxRange.Name = "tbxRange";
-            this.tbxRange.Size = new System.Drawing.Size(42, 21);
-            this.tbxRange.TabIndex = 13;
+            this.tbxlng.Location = new System.Drawing.Point(345, 16);
+            this.tbxlng.Name = "tbxlng";
+            this.tbxlng.Size = new System.Drawing.Size(100, 21);
+            this.tbxlng.TabIndex = 16;
             // 
-            // label12
+            // tbxlat
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(450, 67);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(53, 12);
-            this.label12.TabIndex = 14;
-            this.label12.Text = "计算范围";
+            this.tbxlat.Location = new System.Drawing.Point(345, 45);
+            this.tbxlat.Name = "tbxlat";
+            this.tbxlat.Size = new System.Drawing.Size(100, 21);
+            this.tbxlat.TabIndex = 17;
+            // 
+            // tbxlng2
+            // 
+            this.tbxlng2.Location = new System.Drawing.Point(345, 84);
+            this.tbxlng2.Name = "tbxlng2";
+            this.tbxlng2.Size = new System.Drawing.Size(100, 21);
+            this.tbxlng2.TabIndex = 18;
+            // 
+            // tbxlat2
+            // 
+            this.tbxlat2.Location = new System.Drawing.Point(345, 111);
+            this.tbxlat2.Name = "tbxlat2";
+            this.tbxlat2.Size = new System.Drawing.Size(100, 21);
+            this.tbxlat2.TabIndex = 19;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(345, 164);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(100, 96);
+            this.richTextBox1.TabIndex = 20;
+            this.richTextBox1.Text = "";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(85, 224);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Location = new System.Drawing.Point(225, 159);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(100, 96);
+            this.richTextBox2.TabIndex = 22;
+            this.richTextBox2.Text = "";
             // 
             // Form1
             // 
@@ -454,6 +534,14 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox tbxRange;
         private System.Windows.Forms.Button btnCalculator;
+        private System.Windows.Forms.Button btnKMcal;
+        private System.Windows.Forms.TextBox tbxlat2;
+        private System.Windows.Forms.TextBox tbxlng2;
+        private System.Windows.Forms.TextBox tbxlat;
+        private System.Windows.Forms.TextBox tbxlng;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RichTextBox richTextBox2;
     }
 }
 

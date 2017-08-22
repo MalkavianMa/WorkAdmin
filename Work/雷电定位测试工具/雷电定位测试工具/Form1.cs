@@ -174,6 +174,60 @@ namespace 雷电定位测试工具
 
         private void btnCalculator_Click(object sender, EventArgs e)
         {
+            PositionModel po = new PositionModel();
+            Double poWave = Convert.ToDouble(tbxleftLocation.Text.Split('_')[0]);
+            Double pwWave = Convert.ToDouble(tbxleftLocation.Text.Split('_')[1]);
+            po = DistanceHelper.FindNeighPosition(poWave, pwWave, Convert.ToDouble(tbxRange.Text));//(Convert.ToDouble(tbxleftLocation.Text),Convert.ToDouble(tbxRightLocation.Text), rangWave);
+            richTextBox1.Text = "返回" + po.MaxLat + "|" + po.MaxLng + "|" + po.MinLat + "|" + po.MinLng;
+            writeLog("返回"+po.MaxLat+"|"+po.MaxLng+"|"+po.MinLat+"|"+po.MinLng,DateTime.Now.ToString("yyyy-mm-dd hh:mm:ss.ffffff"));
+        }
+
+        private void btnKMcal_Click(object sender, EventArgs e)
+        {
+            double result = DistanceHelper.GetDistance(Convert.ToDouble( tbxlat.Text), Convert.ToDouble(tbxlng.Text), Convert.ToDouble(tbxlat2.Text), Convert.ToDouble( tbxlng2.Text));
+            writeLog("返回计算距离"+result , DateTime.Now.ToString("yyyy-mm-dd hh:mm:ss.ffffff"));
+
+        }
+
+
+        //参数（起点坐标，角度，斜边长（距离）） 这是一个基本的三角函数应用
+        private double[] getNewPoint(double[] point, double angle, double bevel)
+        {
+            //在Flash中顺时针角度为正，逆时针角度为负
+            //换算过程中先将角度转为弧度
+            var radian = angle * Math.PI / 180;
+            var xMargin = Math.Cos(radian) * bevel;
+            var yMargin = Math.Sin(radian) * bevel;
+            return new double[] { point[0] + xMargin, point[1] + yMargin };
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        { //
+
+           float  poWave = Convert.ToSingle(tbxleftLocation.Text.Split('_')[0]);
+            float pwWave = Convert.ToSingle(tbxleftLocation.Text.Split('_')[1]);
+        //      Double poWave = Convert.ToDouble(tbxleftLocation.Text.Split('_')[0]);
+        //     Double pwWave = Convert.ToDouble(tbxleftLocation.Text.Split('_')[1]);
+        //  double[] point = { poWave, pwWave };
+        double bevel = 5 * Math.Sqrt(2);
+            //double [] result=   getNewPoint(point, 45, bevel);
+            PointF fo = new PointF();
+            fo.X =poWave;
+            fo.Y = pwWave;
+            richTextBox2.Text = getNewPoint(fo, 45, bevel).X.ToString()+"\n" + getNewPoint(fo, 45, bevel).Y.ToString();
+           // richTextBox2.Text = result[0].ToString() +"\n"+ result[1].ToString ();
+        }
+
+        //参数（起点坐标，角度，斜边长（距离）） 这是一个基本的三角函数应用
+        private PointF getNewPoint(PointF point, double angle, double bevel)
+        {
+            //在Flash中顺时针角度为正，逆时针角度为负
+            //换算过程中先将角度转为弧度
+            var radian = angle * Math.PI / 180;
+            var xMargin = Math.Cos(radian) * bevel;
+            var yMargin = Math.Sin(radian) * bevel;
+            return new PointF(point.X + (float)xMargin, point.Y + (float)yMargin);
 
         }
 

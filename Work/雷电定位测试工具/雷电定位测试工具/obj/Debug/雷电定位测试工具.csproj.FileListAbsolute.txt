@@ -24,7 +24,9 @@ C:\Users\Administrator.WIN7-1607281528\Downloads\818\雷电定位测试工具\�
 F:\BaiduNetdiskDownload\818\818\雷电定位测试工具\雷电定位测试工具\bin\Debug\雷电定位测试工具.exe.config
 F:\BaiduNetdiskDownload\818\818\雷电定位测试工具\雷电定位测试工具\obj\Debug\雷电定位测试工具.exe
 F:\BaiduNetdiskDownload\818\818\雷电定位测试工具\雷电定位测试工具\obj\Debug\雷电定位测试工具.pdb
-F:\BaiduNetdiskDownload\818\818\雷电定位测试工具\雷电定位测试工具\obj\Debug\雷电定位测试工具.csprojResolveAssemblyReference.cache
 F:\BaiduNetdiskDownload\818\818\雷电定位测试工具\雷电定位测试工具\obj\Debug\雷电定位测试工具.Form1.resources
 F:\BaiduNetdiskDownload\818\818\雷电定位测试工具\雷电定位测试工具\obj\Debug\雷电定位测试工具.Properties.Resources.resources
 F:\BaiduNetdiskDownload\818\818\雷电定位测试工具\雷电定位测试工具\obj\Debug\雷电定位测试工具.csproj.GenerateResource.Cache
+F:\BaiduNetdiskDownload\818\818\雷电定位测试工具\雷电定位测试工具\bin\Debug\雷电定位测试工具.exe
+F:\BaiduNetdiskDownload\818\818\雷电定位测试工具\雷电定位测试工具\bin\Debug\雷电定位测试工具.pdb
+F:\BaiduNetdiskDownload\818\818\雷电定位测试工具\雷电定位测试工具\obj\Debug\雷电定位测试工具.csprojResolveAssemblyReference.cache

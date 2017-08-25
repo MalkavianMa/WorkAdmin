@@ -1,0 +1,33 @@
+采集数据开始leftLocation = 经度
+114.617594519165纬度
+34.1503852917022rightLocation=右上:经度
+114.726201257202纬度:
+34.2402168201142startTime =2016-12-07 19:20:00endTime =2016-12-07 19:25:00  2017-06-20 10:59:58.980662
+采集数据结束，耗时 0分 0秒377毫秒。  2017-06-20 10:59:59.279679
+采集数据开始leftLocation = 经度
+114.617594519165纬度
+34.1503852917022rightLocation=右上:经度
+114.726201257202纬度:
+34.2402168201142startTime =2016-12-07 19:20:00endTime =2016-12-07 19:25:00  2017-06-20 11:15:08.283113
+采集数据结束，耗时 0分 0秒61毫秒。  2017-06-20 11:15:08.336116
+返回计算距离7.07206348126201  2017-06-20 11:15:53.630707
+异常System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 套接字操作尝试一个无法连接的主机。 10.37.7.71:8087
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 雷电定位测试工具.FaultRecordService.FaultRecordServiceService.getFaultRecordByDeviceOneName(String arg0, time arg1, time arg2) 位置 C:\Users\Administrator.WIN7-1607281528\Downloads\雷电\雷电定位测试工具\雷电定位测试工具\Web References\FaultRecordService\Reference.cs:行号 169
+   在 雷电定位测试工具.Form1.btnLineQuery_Click(Object sender, EventArgs e) 位置 C:\Users\Administrator.WIN7-1607281528\Downloads\雷电\雷电定位测试工具\雷电定位测试工具\Form1.cs:行号 117  2017-06-20 11:39:48.955889
+采集数据开始leftLocation =114.6719_34.1953rightLocation=122.7188_38.8672startTime =2016-12-07 19:20:00endTime =2016-12-07 19:25:00  2017-06-20 11:47:03.075053
+异常System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 套接字操作尝试一个无法连接的主机。 10.141.17.14:20190
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 雷电定位测试工具.LDService.GetFlashReadService.getFlashByRect(String arg0, String arg1, String arg2, String arg3, String arg4, String arg5) 位置 C:\Users\Administrator.WIN7-1607281528\Downloads\雷电\雷电定位测试工具\雷电定位测试工具\Web References\LDService\Reference.cs:行号 79
+   在 雷电定位测试工具.Form1.btntest_Click(Object sender, EventArgs e) 位置 C:\Users\Administrator.WIN7-1607281528\Downloads\雷电\雷电定位测试工具\雷电定位测试工具\Form1.cs:行号 78  2017-06-20 11:47:03.425073
+采集数据结束，耗时 0分 0秒351毫秒。  2017-06-20 11:47:03.507077

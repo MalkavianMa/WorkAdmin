@@ -37,16 +37,46 @@ namespace 雷电定位测试工具
                 };
             }
 
-            /// <summary>
-            /// 计算两点位置的距离，返回两点的距离，单位：公里或千米
-            /// 该公式为GOOGLE提供，误差小于0.2米
-            /// </summary>
-            /// <param name="lat1">第一点纬度</param>
-            /// <param name="lng1">第一点经度</param>
-            /// <param name="lat2">第二点纬度</param>
-            /// <param name="lng2">第二点经度</param>
-            /// <returns>返回两点的距离，单位：公里或千米</returns>
-            public static double GetDistance(double lat1, double lng1, double lat2, double lng2)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="longitude"></param>
+        /// <param name="latitude"></param>
+        /// <returns></returns>
+        public static PositionModel FindNeighPosition(double longitude, double latitude)
+        {
+            double distance = 5;//5km写死
+            //先计算查询点的经纬度范围  
+            double r = 6378.137;//地球半径千米  
+            double dis = distance;//千米距离    
+            double dlng = 2 * Math.Asin(Math.Sin(dis / (2 * r)) / Math.Cos(latitude * Math.PI / 180));
+            dlng = dlng * 180 / Math.PI;//角度转为弧度  
+            double dlat = dis / r;
+            dlat = dlat * 180 / Math.PI;
+            double minlat = latitude - dlat;
+            double maxlat = latitude + dlat;
+            double minlng = longitude - dlng;
+            double maxlng = longitude + dlng;
+            return new PositionModel
+            {
+                MinLat = minlat,
+                MaxLat = maxlat,
+                MinLng = minlng,
+                MaxLng = maxlng
+            };
+        }
+
+
+        /// <summary>
+        /// 计算两点位置的距离，返回两点的距离，单位：公里或千米
+        /// 该公式为GOOGLE提供，误差小于0.2米
+        /// </summary>
+        /// <param name="lat1">第一点纬度</param>
+        /// <param name="lng1">第一点经度</param>
+        /// <param name="lat2">第二点纬度</param>
+        /// <param name="lng2">第二点经度</param>
+        /// <returns>返回两点的距离，单位：公里或千米</returns>
+        public static double GetDistance(double lat1, double lng1, double lat2, double lng2)
             {
                 //地球半径，单位米
                 double EARTH_RADIUS = 6378137;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -107,8 +108,11 @@ namespace 雷电定位测试工具
                 FRerror = FRService.getFaultRecordByDeviceOneName(tbxdeviceOneName.Text, startTime, endTime).error;
                 FRfaultRecordRtn.faultRecords = FRService.getFaultRecordByDeviceOneName(tbxdeviceOneName.Text, startTime, endTime).faultRecords;
 
-                writeLog("返回rtn:" + FRrtn + "返回error:" + FRerror + "返回faultRecordRtn" + FRfaultRecordRtn.faultRecords.ToString(), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.ffffff"));
+                for (int i = 0; i < FRfaultRecordRtn.faultRecords.Length; i++)
+                {
+                    writeLog("返回rtn:" + FRrtn + "返回error:" + FRerror + "返回faultRecordRtn" +"编号"+ FRfaultRecordRtn.faultRecords[i].id.ToString()+"一次设备名"+ FRfaultRecordRtn.faultRecords[i].deviceOneName.ToString()+ "故障时间毫秒值" + FRfaultRecordRtn.faultRecords[i].faultTime.ToString()+ "主站名" + FRfaultRecordRtn.faultRecords[i].stationName.ToString()+ "录波器名" + FRfaultRecordRtn.faultRecords[i].recorderName+ "故障相别"+ FRfaultRecordRtn.faultRecords[i].phase+"故障测距"+ FRfaultRecordRtn.faultRecords[i].location.ToString(), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.ffffff"));
 
+                }
             }
             catch (Exception ex)
             {
@@ -143,7 +147,7 @@ namespace 雷电定位测试工具
                 rtn = FRService.getFile(waveId, tbxWaveExtension.Text).rtn;
                 bytes = FRService.getFile(waveId, tbxWaveExtension.Text).bytes;
                 // FileStream opBytes
-             waveDownload(bytes);
+                waveDownload(bytes);
                 error = FRService.getFile(waveId, tbxWaveExtension.Text).error;
                 //  writeLog("返回rtn:" + rtn + "返回ByteS:" + bytes + "返回error：" + error, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.ffffff"));
 
@@ -169,7 +173,7 @@ namespace 雷电定位测试工具
             }
             string filename = des + "\\download " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.ffffff") + "." + tbxWaveExtension.Text;
             System.IO.File.WriteAllBytes(filename, bytes);
-           
+
         }
 
         private void btnCalculator_Click(object sender, EventArgs e)
@@ -179,13 +183,13 @@ namespace 雷电定位测试工具
             Double pwWave = Convert.ToDouble(tbxleftLocation.Text.Split('_')[1]);
             po = DistanceHelper.FindNeighPosition(poWave, pwWave, Convert.ToDouble(tbxRange.Text));//(Convert.ToDouble(tbxleftLocation.Text),Convert.ToDouble(tbxRightLocation.Text), rangWave);
             richTextBox1.Text = "返回" + po.MaxLat + "|" + po.MaxLng + "|" + po.MinLat + "|" + po.MinLng;
-            writeLog("返回"+po.MaxLat+"|"+po.MaxLng+"|"+po.MinLat+"|"+po.MinLng,DateTime.Now.ToString("yyyy-mm-dd hh:mm:ss.ffffff"));
+            writeLog("返回" + po.MaxLat + "|" + po.MaxLng + "|" + po.MinLat + "|" + po.MinLng, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.ffffff"));
         }
 
         private void btnKMcal_Click(object sender, EventArgs e)
         {
-            double result = DistanceHelper.GetDistance(Convert.ToDouble( tbxlat.Text), Convert.ToDouble(tbxlng.Text), Convert.ToDouble(tbxlat2.Text), Convert.ToDouble( tbxlng2.Text));
-            writeLog("返回计算距离"+result , DateTime.Now.ToString("yyyy-mm-dd hh:mm:ss.ffffff"));
+            double result = DistanceHelper.GetDistance(Convert.ToDouble(tbxlat.Text), Convert.ToDouble(tbxlng.Text), Convert.ToDouble(tbxlat2.Text), Convert.ToDouble(tbxlng2.Text));
+            writeLog("返回计算距离" + result, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.ffffff"));
 
         }
 
@@ -202,21 +206,48 @@ namespace 雷电定位测试工具
 
         }
 
+
+        private Stopwatch stw = new Stopwatch();
+ 
         private void button1_Click(object sender, EventArgs e)
         { //
+            if (!string.IsNullOrEmpty(textBox2.Text))
+            {
+                stw.Start();
 
-           float  poWave = Convert.ToSingle(tbxleftLocation.Text.Split('_')[0]);
-            float pwWave = Convert.ToSingle(tbxleftLocation.Text.Split('_')[1]);
-        //      Double poWave = Convert.ToDouble(tbxleftLocation.Text.Split('_')[0]);
-        //     Double pwWave = Convert.ToDouble(tbxleftLocation.Text.Split('_')[1]);
-        //  double[] point = { poWave, pwWave };
-        double bevel = 5 * Math.Sqrt(2);
-            //double [] result=   getNewPoint(point, 45, bevel);
-            PointF fo = new PointF();
-            fo.X =poWave;
-            fo.Y = pwWave;
-            richTextBox2.Text = getNewPoint(fo, 45, bevel).X.ToString()+"\n" + getNewPoint(fo, 45, bevel).Y.ToString();
-           // richTextBox2.Text = result[0].ToString() +"\n"+ result[1].ToString ();
+                float poWave = Convert.ToSingle(textBox1.Text.Split('_')[0]);
+                float pwWave = Convert.ToSingle(textBox1.Text.Split('_')[1]);
+                float prWave = Convert.ToSingle(textBox2.Text);
+
+                PositionModel bto = new 雷电定位测试工具.PositionModel();
+                bto = DistanceHelper.FindNeighPosition(poWave, pwWave, prWave);
+
+                richTextBox2.Text = "左下:经度\r" + bto.MinLng + "\r纬度\r" + bto.MinLat + "\r" + "右上:经度\r" + bto.MaxLng + "\r纬度:\r" + bto.MaxLat;
+                writeLog("采集数据开始leftLocation =" + " 经度\n" + bto.MinLng + "纬度\n" + bto.MinLat + "rightLocation=" + "右上:经度\n" + bto.MaxLng + "纬度:\n" + bto.MaxLat + "startTime =" + tbxstarttime.Text + "endTime =" + tbxEndtime.Text, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.ffffff"));
+
+                //   private Stopwatch stw = new Stopwatch();
+                stw.Stop();
+                writeLog("采集数据结束，耗时 " + stw.Elapsed.Minutes + "分 " + stw.Elapsed.Seconds + "秒" + stw.Elapsed.Milliseconds + "毫秒。", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.ffffff"));
+
+                // stw.Start();
+                //writeLog("采集数据开始(leftLocation =rightLocation =startTime =endTime =)...",DateTime.Now.ToString("yyyy-mm-dd hh:mm:ss.ffffff"));
+
+
+
+
+                //stw.Stop(); 
+                /// writeLog("采集数据结束，耗时 " + stw.Elapsed.Minutes + "分 " +stw.Elapsed.Seconds+"秒"+stw.Elapsed.Milliseconds+"毫秒。")
+                //      Double poWave = Convert.ToDouble(tbxleftLocation.Text.Split('_')[0]);
+                //     Double pwWave = Convert.ToDouble(tbxleftLocation.Text.Split('_')[1]);
+                //  double[] point = { poWave, pwWave };
+                //  double bevel = 5 * Math.Sqrt(2);
+                ////double [] result=   getNewPoint(point, 45, bevel);
+                //PointF fo = new PointF();
+                //fo.X =poWave;
+                //fo.Y = pwWave;
+                //richTextBox2.Text = getNewPoint(fo, 45, bevel).X.ToString()+"\n" + getNewPoint(fo, 45, bevel).Y.ToString();
+                // richTextBox2.Text = result[0].ToString() +"\n"+ result[1].ToString (); 
+            }
         }
 
         //参数（起点坐标，角度，斜边长（距离）） 这是一个基本的三角函数应用
@@ -230,6 +261,11 @@ namespace 雷电定位测试工具
             return new PointF(point.X + (float)xMargin, point.Y + (float)yMargin);
 
         }
+
+
+    
+
+
 
         ///// <remarks/>
         //[System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace = "http://www.sgcc.com.cn/sggis/service/gisservice", ResponseNamespace = "http://www.sgcc.com.cn/sggis/service/gisservice", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]

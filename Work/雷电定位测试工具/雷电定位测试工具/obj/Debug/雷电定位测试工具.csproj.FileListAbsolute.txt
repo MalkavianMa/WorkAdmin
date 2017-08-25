@@ -30,3 +30,11 @@ F:\BaiduNetdiskDownload\818\818\雷电定位测试工具\雷电定位测试工�
 F:\BaiduNetdiskDownload\818\818\雷电定位测试工具\雷电定位测试工具\bin\Debug\雷电定位测试工具.exe
 F:\BaiduNetdiskDownload\818\818\雷电定位测试工具\雷电定位测试工具\bin\Debug\雷电定位测试工具.pdb
 F:\BaiduNetdiskDownload\818\818\雷电定位测试工具\雷电定位测试工具\obj\Debug\雷电定位测试工具.csprojResolveAssemblyReference.cache
+C:\Users\dell\Documents\GitHub\WorkAdmin\Work\雷电定位测试工具\雷电定位测试工具\bin\Debug\雷电定位测试工具.exe.config
+C:\Users\dell\Documents\GitHub\WorkAdmin\Work\雷电定位测试工具\雷电定位测试工具\obj\Debug\雷电定位测试工具.exe
+C:\Users\dell\Documents\GitHub\WorkAdmin\Work\雷电定位测试工具\雷电定位测试工具\obj\Debug\雷电定位测试工具.pdb
+C:\Users\dell\Documents\GitHub\WorkAdmin\Work\雷电定位测试工具\雷电定位测试工具\bin\Debug\雷电定位测试工具.exe
+C:\Users\dell\Documents\GitHub\WorkAdmin\Work\雷电定位测试工具\雷电定位测试工具\bin\Debug\雷电定位测试工具.pdb
+C:\Users\dell\Documents\GitHub\WorkAdmin\Work\雷电定位测试工具\雷电定位测试工具\obj\Debug\雷电定位测试工具.Form1.resources
+C:\Users\dell\Documents\GitHub\WorkAdmin\Work\雷电定位测试工具\雷电定位测试工具\obj\Debug\雷电定位测试工具.Properties.Resources.resources
+C:\Users\dell\Documents\GitHub\WorkAdmin\Work\雷电定位测试工具\雷电定位测试工具\obj\Debug\雷电定位测试工具.csproj.GenerateResource.Cache
